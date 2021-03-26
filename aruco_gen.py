@@ -19,6 +19,7 @@ def genBatch(filenameFormat, filenameBase, dictionary, firstID, count, extension
     "eps": cairosvg.svg2eps,
   }
   extension_units = {
+    "svg": "cm",
     "png": "px",
     "pdf": "cm",
     "ps": "px",
@@ -44,7 +45,7 @@ def genBatch(filenameFormat, filenameBase, dictionary, firstID, count, extension
     if verbose: print("[INFO] exporting marker {id}".format(id=_id))
 
     # export svg marker
-    filenameSVG = filenameFormat.format(dictionary=dictionary, extension="svg", size=str(_markerSize) + "cm", basename=filenameBase, id=_id)
+    filenameSVG = filenameFormat.format(dictionary=dictionary, extension="svg", size=str(_markerSize) + extension_units["svg"], basename=filenameBase, id=_id)
     MarkerPrinter.GenArucoMarkerImage(filenameSVG, dictionary, _id, _markerSize/100, borderBits=_borderBits, pageBorder=(0, 0))
 
     # convert into other file types
@@ -78,7 +79,7 @@ if __name__ == "__main__":
 
   # dictionary
   parser.add_argument(
-      "--dictionary", dest="dictionary", default="DICT_4X4_1000",
+      "--dictionary", dest="dictionary", default="DICT_5X5_1000",
       help="Generate marker via predefined DICTIONARY aruco dictionary", metavar="DICTIONARY")
 
   # size

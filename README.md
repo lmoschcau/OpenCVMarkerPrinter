@@ -1,3 +1,7 @@
+# ArUco marker batch generator
+use ./aruco_gen.py -h to display syntax.
+
+
 # OpenCVMarkerPrinter
 
 ## Description
