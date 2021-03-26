@@ -4,7 +4,7 @@ import cairo
 import cairosvg
 
 
-def generateMultiple(filenameFormat, filenameBase, dictionary, firstID, count, extensions=[], markerSize=100, markerResolution=1024, borderBits=1, verbose=False):
+def genBatch(filenameFormat, filenameBase, dictionary, firstID, count, extensions=[], markerSize=100, markerResolution=1024, borderBits=1, verbose=False):
   _firstID = int(firstID)
   _count = int(count)
   _markerSize = int(markerSize)
@@ -106,4 +106,4 @@ if __name__ == "__main__":
   # split extension list
   extensions = args.extensions.replace(" ", "").split(",")
 
-  generateMultiple(args.filenameFormat, args.filenameBase, args.dictionary, args.firstMarker, args.count, extensions, args.markerSize, args.markerResolution, args.borderBits, True)
+  genBatch(args.filenameFormat, args.filenameBase, args.dictionary, args.firstMarker, args.count, extensions, args.markerSize, args.markerResolution, args.borderBits, True)
